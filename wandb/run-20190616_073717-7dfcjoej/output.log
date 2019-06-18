@@ -1,0 +1,52 @@
+WARNING:tensorflow:From /opt/conda/lib/python3.7/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+WARNING:tensorflow:From /opt/conda/lib/python3.7/site-packages/keras/backend/tensorflow_backend.py:3445: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_1 (Conv2D)            (None, 26, 26, 32)        320       
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 24, 24, 32)        9248      
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 22, 22, 64)        18496     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 11, 11, 64)        0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 11, 11, 64)        0         
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 9, 9, 64)          36928     
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 4, 4, 64)          0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 4, 4, 64)          0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 1024)              0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 128)               131200    
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 10)                1290      
+=================================================================
+Total params: 197,482
+Trainable params: 197,482
+Non-trainable params: 0
+_________________________________________________________________
+WARNING:tensorflow:From /opt/conda/lib/python3.7/site-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+Traceback (most recent call last):
+  File "keras_cnn.py", line 82, in <module>
+    callbacks=[WandbCallback(data_type="image", save_model=False)])
+  File "/opt/conda/lib/python3.7/site-packages/keras/engine/training.py", line 1010, in fit
+    self._make_train_function()
+  File "/opt/conda/lib/python3.7/site-packages/keras/engine/training.py", line 519, in _make_train_function
+    **self._function_kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/keras/backend/tensorflow_backend.py", line 2744, in function
+    return Function(inputs, outputs, updates=updates, **kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/keras/backend/tensorflow_backend.py", line 2575, in __init__
+    'time: %s', session_kwargs.keys())
+ValueError: ('Some keys in session_kwargs are not supported at this time: %s', dict_keys(['batch_size']))

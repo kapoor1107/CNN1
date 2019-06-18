@@ -1,0 +1,5 @@
+(60000, 28, 28, 1)
+Traceback (most recent call last):
+  File "keras_cnn.py", line 37, in <module>
+    sys.exit(0)
+NameError: name 'sys' is not defined

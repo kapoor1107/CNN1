@@ -1,0 +1,24 @@
+{
+    "root": "/home/jovyan/CNN1",
+    "git": {
+        "remote": "https://github.com/kapoor1107/CNN1.git",
+        "commit": "c3f313b88aba2329488e410264514e282499a0ac"
+    },
+    "email": null,
+    "startedAt": "2019-06-16T07:29:01.796248",
+    "host": "jupyter-kapoor1107",
+    "username": "jovyan",
+    "os": "Linux-4.14.119+-x86_64-with-debian-buster-sid",
+    "python": "3.7.3",
+    "gpu": "Tesla K80",
+    "gpu_count": 1,
+    "cpu_count": 2,
+    "program": "keras_cnn.py",
+    "cuda": "10.1.168",
+    "args": [],
+    "state": "killed",
+    "heartbeatAt": "2019-06-16T07:30:05.638323",
+    "jobType": null,
+    "mode": "run",
+    "exitcode": 255
+}

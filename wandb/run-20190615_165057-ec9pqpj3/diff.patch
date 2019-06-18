@@ -1,0 +1,42 @@
+diff --git a/keras_cnn.py b/keras_cnn.py
+index 879d732..9d5155a 100644
+--- a/keras_cnn.py
++++ b/keras_cnn.py
+@@ -6,6 +6,7 @@ from keras.utils import np_utils
+ from wandb.keras import WandbCallback
+ import wandb
+ import os
++import sys
+ 
+ run = wandb.init()
+ config = run.config
+@@ -26,11 +27,16 @@ X_test = X_test.astype('float32')
+ X_test /= 255.
+ 
+ # reshape input data
++#only 1 RGB channel 
++#act like the reshape -1,1 
++#its a grayscale image of 28x28 so we need to convert it to 28x28x1
+ X_train = X_train.reshape(
+     X_train.shape[0], config.img_width, config.img_height, 1)
+ X_test = X_test.reshape(
+     X_test.shape[0], config.img_width, config.img_height, 1)
+ 
++print(X_train.shape)
++sys.exit(0)
+ # one hot encode outputs
+ y_train = np_utils.to_categorical(y_train)
+ y_test = np_utils.to_categorical(y_test)
+@@ -39,6 +45,12 @@ labels = range(10)
+ 
+ # build model
+ model = Sequential()
++#32 number of channels. 32 is the depth of the filter you can choose it to be whatever you want.32 sets of features.32 separate things are there which are present in the image
++#its a feature map
++
++#3x3 or 5x5 is height/width
++
++
+ model.add(Conv2D(32,
+                  (config.first_layer_conv_width, config.first_layer_conv_height),
+                  input_shape=(28, 28, 1),

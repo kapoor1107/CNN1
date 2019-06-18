@@ -1,0 +1,20 @@
+diff --git a/keras_cnn.py b/keras_cnn.py
+index 879d732..5769d86 100644
+--- a/keras_cnn.py
++++ b/keras_cnn.py
+@@ -26,11 +26,15 @@ X_test = X_test.astype('float32')
+ X_test /= 255.
+ 
+ # reshape input data
++#only 1 RGB channel 
++#act like the reshape -1,1 
+ X_train = X_train.reshape(
+     X_train.shape[0], config.img_width, config.img_height, 1)
+ X_test = X_test.reshape(
+     X_test.shape[0], config.img_width, config.img_height, 1)
+ 
++print(X_train.shape)
++sys.exit(0)
+ # one hot encode outputs
+ y_train = np_utils.to_categorical(y_train)
+ y_test = np_utils.to_categorical(y_test)
